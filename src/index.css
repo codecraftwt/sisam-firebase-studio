@@ -1,3 +1,40 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #001f3f;
+  --color-primary-light: #0074d9;
+  --color-accent: #00ffff;
+  --color-accent-glow: #00ffff80;
+  --color-surface: #001629;
+  --color-surface-glass: rgba(255,255,255,0.08);
+  --color-text: #e0f7ff;
+  --color-text-muted: #a0c4ff;
+  --color-border: rgba(255,255,255,0.06);
+
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Orbitron", monospace;
+
+  @keyframes glow {
+    0%   { box-shadow: 0 0 5px #00d0ff, 0 0 10px #00d0ff, 0 0 15px #00d0ff; }
+    100% { box-shadow: 0 0 10px #00d0ff, 0 0 20px #00d0ff, 0 0 30px #00d0ff; }
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0px); }
+    50%     { transform: translateY(-20px); }
+  }
+}
+
+@utility glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+@utility float {
+  animation: float 6s ease-in-out infinite;
+}
+@utility pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
