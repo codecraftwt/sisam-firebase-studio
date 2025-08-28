@@ -12,10 +12,11 @@ import {
 } from "@heroicons/react/24/outline";
 import Counter from "../components/Counter.jsx";
 import ServiceCard from "../components/ServiceCard.jsx";
+import ScrollSection from "../components/subcomponents/animated/LogisticsScrollSection.jsx";
 
 const Home = () => {
   const heroRef = useRef(null);
-  const headlineRef = useRef (null);
+  const headlineRef = useRef(null);
   const servicesRef = useRef(null);
   const countersRef = useRef(null);
 
@@ -89,12 +90,7 @@ const Home = () => {
         "End-to-end logistics services with real-time tracking and optimization for maximum efficiency.",
       icon: <TruckIcon className="w-12 h-12" />,
       href: "/services/logistics",
-      features: [
-        "Global Network",
-        "Real-time Tracking",
-        "Cost Optimization",
-        "24/7 Support",
-      ],
+      features: ["Global Network", "Real-time Tracking", "Cost Optimization", "24/7 Support"],
     },
     {
       title: "Bulk Liquid Transportation",
@@ -115,12 +111,7 @@ const Home = () => {
         "Comprehensive agency services including customs clearance, documentation, and compliance management.",
       icon: <BuildingOfficeIcon className="w-12 h-12" />,
       href: "/services/agency",
-      features: [
-        "Customs Clearance",
-        "Documentation",
-        "Compliance",
-        "Expert Consultation",
-      ],
+      features: ["Customs Clearance", "Documentation", "Compliance", "Expert Consultation"],
     },
   ];
 
@@ -129,10 +120,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primaryLight to-surface opacity-90"></div>
-        <div
-          ref={heroRef}
-          className="relative z-10 max-w-4xl mx-auto px-4 text-center"
-        >
+        <div ref={heroRef} className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <div className="overflow-hidden mb-6">
             <h1
               ref={headlineRef}
@@ -144,9 +132,8 @@ const Home = () => {
           </div>
 
           <p className="text-xl md:text-2xl text-textMuted mb-8 max-w-2xl mx-auto leading-relaxed">
-            Leading global logistics and transportation solutions since 1985,
-            connecting businesses worldwide with innovative technology and
-            unparalleled service.
+            Leading global logistics and transportation solutions since 1985, connecting businesses
+            worldwide with innovative technology and unparalleled service.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -177,6 +164,8 @@ const Home = () => {
         ></div>
       </section>
 
+      <ScrollSection />
+
       {/* Services Section */}
       <section className="py-20 bg-surfaceGlass backdrop-blur-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -185,15 +174,12 @@ const Home = () => {
               Our <span className="text-accent">Services</span>
             </h2>
             <p className="text-xl text-textMuted max-w-3xl mx-auto">
-              Comprehensive logistics solutions tailored to meet your business
-              needs with cutting-edge technology and global reach.
+              Comprehensive logistics solutions tailored to meet your business needs with
+              cutting-edge technology and global reach.
             </p>
           </div>
 
-          <div
-            ref={servicesRef}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
+          <div ref={servicesRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <ServiceCard key={index} {...service} />
             ))}
@@ -209,15 +195,11 @@ const Home = () => {
               Our <span className="text-accent">Impact</span>
             </h2>
             <p className="text-xl text-textMuted">
-              Numbers that reflect our commitment to excellence and global
-              reach.
+              Numbers that reflect our commitment to excellence and global reach.
             </p>
           </div>
 
-          <div
-            ref={countersRef}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8"
-          >
+          <div ref={countersRef} className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             <Counter end={500} label="Dedicated Employees" suffix="+" />
             <Counter end={50} label="Countries Served" suffix="+" />
             <Counter end={10000} label="Satisfied Clients" suffix="+" />
@@ -234,8 +216,7 @@ const Home = () => {
               Why Choose <span className="text-accent">Sisam Group</span>
             </h2>
             <p className="text-xl text-textMuted max-w-3xl mx-auto">
-              Three decades of excellence, innovation, and trusted partnerships
-              in global logistics.
+              Three decades of excellence, innovation, and trusted partnerships in global logistics.
             </p>
           </div>
 
@@ -264,9 +245,7 @@ const Home = () => {
                 <div className="text-accent mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-text mb-4">
-                  {item.title}
-                </h3>
+                <h3 className="text-xl font-semibold text-text mb-4">{item.title}</h3>
                 <p className="text-textMuted">{item.description}</p>
               </div>
             ))}
@@ -281,8 +260,8 @@ const Home = () => {
             Ready to <span className="text-accent">Get Started?</span>
           </h2>
           <p className="text-xl text-textMuted mb-8">
-            Contact our experts today for a customized logistics solution
-            tailored to your business needs.
+            Contact our experts today for a customized logistics solution tailored to your business
+            needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
