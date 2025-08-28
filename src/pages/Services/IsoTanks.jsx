@@ -1,23 +1,32 @@
-import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { BeakerIcon, ShieldCheckIcon, CogIcon, FireIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
+import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  BeakerIcon,
+  ShieldCheckIcon,
+  CogIcon,
+  FireIcon,
+  CheckCircleIcon,
+  XCircleIcon,
+} from "@heroicons/react/24/outline";
 
-const IsoTanks: React.FC = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const benefitsRef = useRef<HTMLDivElement>(null);
+const IsoTanks = () => {
+  const heroRef = useRef(null);
+  const benefitsRef = useRef(null);
 
   useEffect(() => {
     if (heroRef.current) {
-      gsap.fromTo(heroRef.current.children,
+      gsap.fromTo(
+        heroRef.current.children,
         { opacity: 0, y: 60 },
         { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out" }
       );
     }
 
     if (benefitsRef.current) {
-      gsap.fromTo(benefitsRef.current.children,
+      gsap.fromTo(
+        benefitsRef.current.children,
         { opacity: 0, y: 50 },
         {
           opacity: 1,
@@ -27,14 +36,14 @@ const IsoTanks: React.FC = () => {
           scrollTrigger: {
             trigger: benefitsRef.current,
             start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
+            toggleActions: "play none none reverse",
+          },
         }
       );
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
@@ -42,23 +51,27 @@ const IsoTanks: React.FC = () => {
     {
       icon: <BeakerIcon className="w-10 h-10" />,
       title: "Hazardous Liquids",
-      description: "Certified for transport of dangerous goods and hazardous chemicals with full safety compliance."
+      description:
+        "Certified for transport of dangerous goods and hazardous chemicals with full safety compliance.",
     },
     {
       icon: <CogIcon className="w-10 h-10" />,
       title: "Reusable Design",
-      description: "Durable stainless steel construction allows multiple trips, reducing long-term transportation costs."
+      description:
+        "Durable stainless steel construction allows multiple trips, reducing long-term transportation costs.",
     },
     {
       icon: <FireIcon className="w-10 h-10" />,
       title: "Temperature Control",
-      description: "Heating and cooling options maintain optimal product temperature during transport."
+      description:
+        "Heating and cooling options maintain optimal product temperature during transport.",
     },
     {
       icon: <ShieldCheckIcon className="w-10 h-10" />,
       title: "Multi-Modal",
-      description: "Compatible with ship, rail, and truck transport with standardized handling equipment."
-    }
+      description:
+        "Compatible with ship, rail, and truck transport with standardized handling equipment.",
+    },
   ];
 
   const specifications = [
@@ -69,39 +82,55 @@ const IsoTanks: React.FC = () => {
     { label: "Working Pressure", value: "2.65 bar (typical)" },
     { label: "Test Pressure", value: "4.0 bar minimum" },
     { label: "Temperature Range", value: "-40°C to +130°C" },
-    { label: "Certifications", value: "CSC, IMDG, ADR, RID" }
+    { label: "Certifications", value: "CSC, IMDG, ADR, RID" },
   ];
 
   const tankTypes = [
     {
       type: "T11 - Standard",
       description: "General purpose tank for non-hazardous liquids",
-      applications: ["Food grade liquids", "Industrial chemicals", "Oils and lubricants"],
-      features: ["Basic design", "Cost effective", "Wide compatibility"]
+      applications: [
+        "Food grade liquids",
+        "Industrial chemicals",
+        "Oils and lubricants",
+      ],
+      features: ["Basic design", "Cost effective", "Wide compatibility"],
     },
     {
       type: "T14 - Hazardous",
       description: "Reinforced tank for dangerous goods transport",
-      applications: ["Corrosive chemicals", "Toxic substances", "Flammable liquids"],
-      features: ["Enhanced safety", "Pressure relief", "Emergency systems"]
+      applications: [
+        "Corrosive chemicals",
+        "Toxic substances",
+        "Flammable liquids",
+      ],
+      features: ["Enhanced safety", "Pressure relief", "Emergency systems"],
     },
     {
       type: "T22 - Heated",
       description: "Temperature-controlled tank with heating systems",
-      applications: ["Heated chemicals", "Viscous liquids", "Temperature-sensitive products"],
-      features: ["Steam heating", "Thermal insulation", "Temperature monitoring"]
-    }
+      applications: [
+        "Heated chemicals",
+        "Viscous liquids",
+        "Temperature-sensitive products",
+      ],
+      features: [
+        "Steam heating",
+        "Thermal insulation",
+        "Temperature monitoring",
+      ],
+    },
   ];
 
   const suitableFor = [
     "Hazardous chemicals",
-    "Corrosive liquids", 
+    "Corrosive liquids",
     "High-value products",
     "Temperature-sensitive liquids",
     "Pharmaceutical products",
     "Specialty chemicals",
     "Industrial solvents",
-    "Food-grade heated products"
+    "Food-grade heated products",
   ];
 
   const advantages = [
@@ -112,7 +141,7 @@ const IsoTanks: React.FC = () => {
     "Multi-modal compatibility",
     "Global tracking capability",
     "Reduced handling risks",
-    "Long-term cost efficiency"
+    "Long-term cost efficiency",
   ];
 
   return (
@@ -128,8 +157,9 @@ const IsoTanks: React.FC = () => {
               ISO Tank <span className="text-accent">Solutions</span>
             </h1>
             <p className="text-xl text-textMuted max-w-4xl mx-auto mb-8">
-              Premium stainless steel tank containers for safe transport of hazardous and high-value liquids. 
-              Reusable, multi-modal, and fully compliant with international safety standards.
+              Premium stainless steel tank containers for safe transport of
+              hazardous and high-value liquids. Reusable, multi-modal, and fully
+              compliant with international safety standards.
             </p>
           </div>
 
@@ -158,11 +188,15 @@ const IsoTanks: React.FC = () => {
               ISO Tank <span className="text-accent">Advantages</span>
             </h2>
             <p className="text-xl text-textMuted max-w-3xl mx-auto">
-              Why ISO tanks are the preferred choice for hazardous and high-value liquid transportation.
+              Why ISO tanks are the preferred choice for hazardous and
+              high-value liquid transportation.
             </p>
           </div>
 
-          <div ref={benefitsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            ref={benefitsRef}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
             {benefits.map((benefit, index) => (
               <div key={index} className="group text-center">
                 <div className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-xl p-6 hover:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accentGlow/20 h-full">
@@ -172,7 +206,9 @@ const IsoTanks: React.FC = () => {
                   <h3 className="text-xl font-semibold text-text mb-3 group-hover:text-accent transition-colors duration-300">
                     {benefit.title}
                   </h3>
-                  <p className="text-textMuted text-sm leading-relaxed">{benefit.description}</p>
+                  <p className="text-textMuted text-sm leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -188,21 +224,34 @@ const IsoTanks: React.FC = () => {
               Tank <span className="text-accent">Types</span>
             </h2>
             <p className="text-xl text-textMuted max-w-3xl mx-auto">
-              Choose the right ISO tank type based on your specific liquid transport requirements.
+              Choose the right ISO tank type based on your specific liquid
+              transport requirements.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {tankTypes.map((tank, index) => (
-              <div key={index} className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-xl p-8 hover:border-accent transition-all duration-300">
-                <h3 className="text-2xl font-semibold text-accent mb-2">{tank.type}</h3>
-                <p className="text-textMuted mb-6 leading-relaxed">{tank.description}</p>
-                
+              <div
+                key={index}
+                className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-xl p-8 hover:border-accent transition-all duration-300"
+              >
+                <h3 className="text-2xl font-semibold text-accent mb-2">
+                  {tank.type}
+                </h3>
+                <p className="text-textMuted mb-6 leading-relaxed">
+                  {tank.description}
+                </p>
+
                 <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-text mb-3">Applications:</h4>
+                  <h4 className="text-lg font-semibold text-text mb-3">
+                    Applications:
+                  </h4>
                   <ul className="space-y-2">
                     {tank.applications.map((app, appIndex) => (
-                      <li key={appIndex} className="flex items-center text-sm text-textMuted">
+                      <li
+                        key={appIndex}
+                        className="flex items-center text-sm text-textMuted"
+                      >
                         <div className="w-2 h-2 bg-accent rounded-full mr-3"></div>
                         {app}
                       </li>
@@ -211,10 +260,15 @@ const IsoTanks: React.FC = () => {
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold text-text mb-3">Features:</h4>
+                  <h4 className="text-lg font-semibold text-text mb-3">
+                    Features:
+                  </h4>
                   <ul className="space-y-2">
                     {tank.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-textMuted">
+                      <li
+                        key={featureIndex}
+                        className="flex items-center text-sm text-textMuted"
+                      >
                         <CheckCircleIcon className="w-4 h-4 text-green-500 mr-2" />
                         {feature}
                       </li>
@@ -242,7 +296,10 @@ const IsoTanks: React.FC = () => {
           <div className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-2xl overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-border">
               {specifications.map((spec, index) => (
-                <div key={index} className="p-6 flex justify-between items-center hover:bg-accent/5 transition-colors duration-200">
+                <div
+                  key={index}
+                  className="p-6 flex justify-between items-center hover:bg-accent/5 transition-colors duration-200"
+                >
                   <div className="text-text font-medium">{spec.label}</div>
                   <div className="text-accent font-semibold">{spec.value}</div>
                 </div>
@@ -260,7 +317,8 @@ const IsoTanks: React.FC = () => {
               Ideal <span className="text-accent">Applications</span>
             </h2>
             <p className="text-xl text-textMuted max-w-3xl mx-auto">
-              ISO tanks are specifically designed for products requiring specialized handling and safety measures.
+              ISO tanks are specifically designed for products requiring
+              specialized handling and safety measures.
             </p>
           </div>
 
@@ -269,7 +327,9 @@ const IsoTanks: React.FC = () => {
             <div className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-xl p-8">
               <div className="flex items-center mb-6">
                 <CheckCircleIcon className="w-8 h-8 text-green-500 mr-3" />
-                <h3 className="text-2xl font-semibold text-text">Ideal Products</h3>
+                <h3 className="text-2xl font-semibold text-text">
+                  Ideal Products
+                </h3>
               </div>
               <ul className="space-y-3">
                 {suitableFor.map((product, index) => (
@@ -285,7 +345,9 @@ const IsoTanks: React.FC = () => {
             <div className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-xl p-8">
               <div className="flex items-center mb-6">
                 <ShieldCheckIcon className="w-8 h-8 text-accent mr-3" />
-                <h3 className="text-2xl font-semibold text-text">Key Advantages</h3>
+                <h3 className="text-2xl font-semibold text-text">
+                  Key Advantages
+                </h3>
               </div>
               <ul className="space-y-3">
                 {advantages.map((advantage, index) => (
@@ -308,23 +370,50 @@ const IsoTanks: React.FC = () => {
               Transport <span className="text-accent">Process</span>
             </h2>
             <p className="text-xl text-textMuted max-w-3xl mx-auto">
-              A comprehensive process ensuring safe handling from origin to destination.
+              A comprehensive process ensuring safe handling from origin to
+              destination.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {[
-              { step: "01", title: "Inspection", description: "Tank inspection and certification" },
-              { step: "02", title: "Preparation", description: "Cleaning and setup procedures" },
-              { step: "03", title: "Loading", description: "Safe loading with monitoring" },
-              { step: "04", title: "Transport", description: "Multi-modal transport options" },
-              { step: "05", title: "Discharge", description: "Controlled discharge and cleaning" }
+              {
+                step: "01",
+                title: "Inspection",
+                description: "Tank inspection and certification",
+              },
+              {
+                step: "02",
+                title: "Preparation",
+                description: "Cleaning and setup procedures",
+              },
+              {
+                step: "03",
+                title: "Loading",
+                description: "Safe loading with monitoring",
+              },
+              {
+                step: "04",
+                title: "Transport",
+                description: "Multi-modal transport options",
+              },
+              {
+                step: "05",
+                title: "Discharge",
+                description: "Controlled discharge and cleaning",
+              },
             ].map((process, index) => (
               <div key={index} className="text-center">
                 <div className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-xl p-6 hover:border-accent transition-all duration-300 mb-4">
-                  <div className="text-2xl font-heading font-bold text-accent mb-3">{process.step}</div>
-                  <h3 className="text-lg font-semibold text-text mb-2">{process.title}</h3>
-                  <p className="text-textMuted text-sm">{process.description}</p>
+                  <div className="text-2xl font-heading font-bold text-accent mb-3">
+                    {process.step}
+                  </div>
+                  <h3 className="text-lg font-semibold text-text mb-2">
+                    {process.title}
+                  </h3>
+                  <p className="text-textMuted text-sm">
+                    {process.description}
+                  </p>
                 </div>
                 {index < 4 && (
                   <div className="hidden lg:block w-full h-0.5 bg-accent opacity-30"></div>
@@ -342,7 +431,8 @@ const IsoTanks: React.FC = () => {
             Need <span className="text-accent">ISO Tank</span> Solutions?
           </h2>
           <p className="text-xl text-textMuted mb-8 max-w-2xl mx-auto">
-            Our ISO tank specialists will help you select the right tank type and provide comprehensive transport solutions.
+            Our ISO tank specialists will help you select the right tank type
+            and provide comprehensive transport solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

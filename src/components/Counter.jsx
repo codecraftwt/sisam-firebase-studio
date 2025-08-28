@@ -2,16 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-interface CounterProps {
-  end: number;
-  label: string;
-  suffix?: string;
-  duration?: number;
-}
 
-const Counter: React.FC<CounterProps> = ({ end, label, suffix = '', duration = 2 }) => {
+const Counter= ({ end, label, suffix = '', duration = 2 }) => {
   const [count, setCount] = useState(0);
-  const counterRef = useRef<HTMLDivElement>(null);
+  const counterRef = useRef(null);
   const hasAnimated = useRef(false);
 
   useEffect(() => {

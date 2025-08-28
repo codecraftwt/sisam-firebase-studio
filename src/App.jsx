@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { gsap } from 'gsap';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+
 import Home from './pages/Home';
 import About from './pages/About';
 import ServicesOverview from './pages/Services/ServicesOverview';
@@ -15,17 +14,38 @@ import Agency from './pages/Services/Agency';
 import LifeAtSisam from './pages/LifeAtSisam';
 import Contact from './pages/Contact';
 import StarField from './components/StarField';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function App() {
+const App = () => {
   useEffect(() => {
-    // Initialize ScrollTrigger
     ScrollTrigger.refresh();
   }, []);
 
   return (
-    <Router>
+    // <Router>
+    //   <div className="min-h-screen bg-surface text-text font-sans overflow-x-hidden">
+    //     {/* Star background */}
+    //     <StarField />
+    //     <Navbar />
+    //     <Routes>
+    //       <Route path="/" element={<Home />} />
+    //       <Route path="/about" element={<About />} />
+    //       <Route path="/services" element={<ServicesOverview />} />
+    //       <Route path="/services/logistics" element={<Logistics />} />
+    //       <Route path="/services/bulk-liquid" element={<BulkLiquid />} />
+    //       <Route path="/services/flexitank" element={<FlexiTank />} />
+    //       <Route path="/services/isotanks" element={<IsoTanks />} />
+    //       <Route path="/services/agency" element={<Agency />} />
+    //       <Route path="/life-at-sisam" element={<LifeAtSisam />} />
+    //       <Route path="/contact" element={<Contact />} />
+    //     </Routes>
+    //   </div>
+    // </Router>
+
+        <Router>
       <div className="min-h-screen bg-surface text-text font-sans overflow-x-hidden">
         <StarField />
         <Navbar />
@@ -47,6 +67,6 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;

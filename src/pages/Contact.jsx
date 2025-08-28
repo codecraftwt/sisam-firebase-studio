@@ -1,29 +1,37 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MapPinIcon, PhoneIcon, EnvelopeIcon, ClockIcon } from '@heroicons/react/24/outline';
+import React, { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  MapPinIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+  ClockIcon,
+  GlobeAltIcon,
+} from "@heroicons/react/24/outline";
 
-const Contact: React.FC = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const formRef = useRef<HTMLDivElement>(null);
+const Contact = () => {
+  const heroRef = useRef(null);
+  const formRef = useRef(null);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    service: '',
-    message: ''
+    name: "",
+    email: "",
+    company: "",
+    service: "",
+    message: "",
   });
 
   useEffect(() => {
     if (heroRef.current) {
-      gsap.fromTo(heroRef.current.children,
+      gsap.fromTo(
+        heroRef.current.children,
         { opacity: 0, y: 60 },
         { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out" }
       );
     }
 
     if (formRef.current) {
-      gsap.fromTo(formRef.current,
+      gsap.fromTo(
+        formRef.current,
         { opacity: 0, x: -50 },
         {
           opacity: 1,
@@ -32,35 +40,35 @@ const Contact: React.FC = () => {
           scrollTrigger: {
             trigger: formRef.current,
             start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
+            toggleActions: "play none none reverse",
+          },
         }
       );
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Reset form
     setFormData({
-      name: '',
-      email: '',
-      company: '',
-      service: '',
-      message: ''
+      name: "",
+      email: "",
+      company: "",
+      service: "",
+      message: "",
     });
   };
 
@@ -71,23 +79,23 @@ const Contact: React.FC = () => {
       address: "123 Business Center, Andheri East, Mumbai 400069",
       phone: "+91 22 1234 5678",
       email: "mumbai@sisamgroup.com",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM"
+      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
     },
     {
       city: "Delhi",
-      country: "India", 
+      country: "India",
       address: "456 Corporate Plaza, Connaught Place, New Delhi 110001",
       phone: "+91 11 1234 5678",
       email: "delhi@sisamgroup.com",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM"
+      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
     },
     {
       city: "Chennai",
       country: "India",
       address: "789 Trade Center, T. Nagar, Chennai 600017",
-      phone: "+91 44 1234 5678", 
+      phone: "+91 44 1234 5678",
       email: "chennai@sisamgroup.com",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM"
+      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
     },
     {
       city: "Singapore",
@@ -95,18 +103,18 @@ const Contact: React.FC = () => {
       address: "101 Marina Bay, Singapore 018956",
       phone: "+65 6234 5678",
       email: "singapore@sisamgroup.com",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM"
-    }
+      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
+    },
   ];
 
   const services = [
     "Logistics Solutions",
     "Bulk Liquid Transportation",
     "FlexiTank Services",
-    "ISO Tank Services", 
+    "ISO Tank Services",
     "Agency Services",
     "Customs Clearance",
-    "General Inquiry"
+    "General Inquiry",
   ];
 
   return (
@@ -119,8 +127,9 @@ const Contact: React.FC = () => {
               Contact <span className="text-accent">Us</span>
             </h1>
             <p className="text-xl text-textMuted max-w-4xl mx-auto mb-8">
-              Ready to optimize your logistics operations? Get in touch with our experts for customized solutions 
-              that meet your specific business requirements.
+              Ready to optimize your logistics operations? Get in touch with our
+              experts for customized solutions that meet your specific business
+              requirements.
             </p>
           </div>
 
@@ -152,13 +161,17 @@ const Contact: React.FC = () => {
                   Get in <span className="text-accent">Touch</span>
                 </h2>
                 <p className="text-textMuted mb-8">
-                  Fill out the form below and our team will get back to you within 24 hours.
+                  Fill out the form below and our team will get back to you
+                  within 24 hours.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-text mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-text mb-2"
+                      >
                         Full Name *
                       </label>
                       <input
@@ -173,7 +186,10 @@ const Contact: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-text mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-text mb-2"
+                      >
                         Email Address *
                       </label>
                       <input
@@ -190,7 +206,10 @@ const Contact: React.FC = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-text mb-2">
+                    <label
+                      htmlFor="company"
+                      className="block text-sm font-medium text-text mb-2"
+                    >
                       Company Name
                     </label>
                     <input
@@ -205,7 +224,10 @@ const Contact: React.FC = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-text mb-2">
+                    <label
+                      htmlFor="service"
+                      className="block text-sm font-medium text-text mb-2"
+                    >
                       Service Interest
                     </label>
                     <select
@@ -217,13 +239,18 @@ const Contact: React.FC = () => {
                     >
                       <option value="">Select a service</option>
                       {services.map((service, index) => (
-                        <option key={index} value={service}>{service}</option>
+                        <option key={index} value={service}>
+                          {service}
+                        </option>
                       ))}
                     </select>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-text mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-text mb-2"
+                    >
                       Message *
                     </label>
                     <textarea
@@ -258,25 +285,39 @@ const Contact: React.FC = () => {
                   <div className="flex items-start space-x-4">
                     <PhoneIcon className="w-6 h-6 text-accent mt-1" />
                     <div>
-                      <div className="text-text font-medium">24/7 Support Hotline</div>
+                      <div className="text-text font-medium">
+                        24/7 Support Hotline
+                      </div>
                       <div className="text-textMuted">+91 22 1234 5678</div>
-                      <div className="text-textMuted text-sm">Available round the clock for urgent shipments</div>
+                      <div className="text-textMuted text-sm">
+                        Available round the clock for urgent shipments
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
                     <EnvelopeIcon className="w-6 h-6 text-accent mt-1" />
                     <div>
                       <div className="text-text font-medium">Email Support</div>
-                      <div className="text-textMuted">support@sisamgroup.com</div>
-                      <div className="text-textMuted text-sm">We respond within 4 hours</div>
+                      <div className="text-textMuted">
+                        support@sisamgroup.com
+                      </div>
+                      <div className="text-textMuted text-sm">
+                        We respond within 4 hours
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
                     <ClockIcon className="w-6 h-6 text-accent mt-1" />
                     <div>
-                      <div className="text-text font-medium">Business Hours</div>
-                      <div className="text-textMuted">Monday - Friday: 9:00 AM - 6:00 PM IST</div>
-                      <div className="text-textMuted text-sm">Emergency services available 24/7</div>
+                      <div className="text-text font-medium">
+                        Business Hours
+                      </div>
+                      <div className="text-textMuted">
+                        Monday - Friday: 9:00 AM - 6:00 PM IST
+                      </div>
+                      <div className="text-textMuted text-sm">
+                        Emergency services available 24/7
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -289,11 +330,15 @@ const Contact: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <button className="text-left p-4 bg-surfaceGlass border border-border rounded-lg hover:border-accent transition-all duration-200">
                     <div className="text-text font-medium">Track Shipment</div>
-                    <div className="text-textMuted text-sm">Real-time tracking</div>
+                    <div className="text-textMuted text-sm">
+                      Real-time tracking
+                    </div>
                   </button>
                   <button className="text-left p-4 bg-surfaceGlass border border-border rounded-lg hover:border-accent transition-all duration-200">
                     <div className="text-text font-medium">Get Quote</div>
-                    <div className="text-textMuted text-sm">Instant pricing</div>
+                    <div className="text-textMuted text-sm">
+                      Instant pricing
+                    </div>
                   </button>
                   <button className="text-left p-4 bg-surfaceGlass border border-border rounded-lg hover:border-accent transition-all duration-200">
                     <div className="text-text font-medium">Documentation</div>
@@ -318,30 +363,42 @@ const Contact: React.FC = () => {
               Our <span className="text-accent">Offices</span>
             </h2>
             <p className="text-xl text-textMuted max-w-3xl mx-auto">
-              Visit us at any of our global offices or connect with our local representatives for personalized service.
+              Visit us at any of our global offices or connect with our local
+              representatives for personalized service.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {offices.map((office, index) => (
-              <div key={index} className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-xl p-6 hover:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accentGlow/20">
+              <div
+                key={index}
+                className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-xl p-6 hover:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accentGlow/20"
+              >
                 <div className="flex items-center mb-4">
                   <MapPinIcon className="w-6 h-6 text-accent mr-2" />
-                  <h3 className="text-xl font-semibold text-text">{office.city}</h3>
+                  <h3 className="text-xl font-semibold text-text">
+                    {office.city}
+                  </h3>
                 </div>
                 <div className="space-y-3">
                   <p className="text-textMuted text-sm">{office.address}</p>
                   <div className="flex items-center">
                     <PhoneIcon className="w-4 h-4 text-accent mr-2" />
-                    <span className="text-textMuted text-sm">{office.phone}</span>
+                    <span className="text-textMuted text-sm">
+                      {office.phone}
+                    </span>
                   </div>
                   <div className="flex items-center">
                     <EnvelopeIcon className="w-4 h-4 text-accent mr-2" />
-                    <span className="text-textMuted text-sm">{office.email}</span>
+                    <span className="text-textMuted text-sm">
+                      {office.email}
+                    </span>
                   </div>
                   <div className="flex items-center">
                     <ClockIcon className="w-4 h-4 text-accent mr-2" />
-                    <span className="text-textMuted text-sm">{office.hours}</span>
+                    <span className="text-textMuted text-sm">
+                      {office.hours}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -358,7 +415,8 @@ const Contact: React.FC = () => {
               Find <span className="text-accent">Us</span>
             </h2>
             <p className="text-xl text-textMuted max-w-3xl mx-auto">
-              Locate our offices worldwide and visit us for in-person consultations.
+              Locate our offices worldwide and visit us for in-person
+              consultations.
             </p>
           </div>
 
@@ -366,8 +424,12 @@ const Contact: React.FC = () => {
             <div className="aspect-video bg-surface rounded-lg flex items-center justify-center">
               <div className="text-center">
                 <GlobeAltIcon className="w-16 h-16 text-accent mx-auto mb-4" />
-                <p className="text-textMuted">Interactive global office map would be embedded here</p>
-                <p className="text-textMuted text-sm mt-2">Showing all Sisam Group locations worldwide</p>
+                <p className="text-textMuted">
+                  Interactive global office map would be embedded here
+                </p>
+                <p className="text-textMuted text-sm mt-2">
+                  Showing all Sisam Group locations worldwide
+                </p>
               </div>
             </div>
           </div>

@@ -2,15 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
-interface ServiceCardProps {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  href: string;
-  features?: string[];
-}
+// interface ServiceCardProps {
+//   title: string;
+//   description: string;
+//   icon: React.ReactNode;
+//   href: string;
+//   features?: string[];
+// }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, href, features }) => {
+const ServiceCard = ({ title, description, icon, href, features }) => {
   return (
     <div className="group relative">
       <div className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-xl p-6 hover:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accentGlow/20">

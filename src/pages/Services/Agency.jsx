@@ -1,23 +1,32 @@
-import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { BuildingOfficeIcon, DocumentTextIcon, ShieldCheckIcon, GlobeAltIcon, ChartBarIcon, UserGroupIcon } from '@heroicons/react/24/outline';
+import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  BuildingOfficeIcon,
+  DocumentTextIcon,
+  ShieldCheckIcon,
+  GlobeAltIcon,
+  ChartBarIcon,
+  UserGroupIcon,
+} from "@heroicons/react/24/outline";
 
-const Agency: React.FC = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const servicesRef = useRef<HTMLDivElement>(null);
+const Agency = () => {
+  const heroRef = useRef(null);
+  const servicesRef = useRef(null);
 
   useEffect(() => {
     if (heroRef.current) {
-      gsap.fromTo(heroRef.current.children,
+      gsap.fromTo(
+        heroRef.current.children,
         { opacity: 0, y: 60 },
         { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out" }
       );
     }
 
     if (servicesRef.current) {
-      gsap.fromTo(servicesRef.current.children,
+      gsap.fromTo(
+        servicesRef.current.children,
         { opacity: 0, y: 50 },
         {
           opacity: 1,
@@ -27,14 +36,14 @@ const Agency: React.FC = () => {
           scrollTrigger: {
             trigger: servicesRef.current,
             start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
+            toggleActions: "play none none reverse",
+          },
         }
       );
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
@@ -42,80 +51,87 @@ const Agency: React.FC = () => {
     {
       icon: <DocumentTextIcon className="w-10 h-10" />,
       title: "Customs Clearance",
-      description: "Expert customs brokerage services ensuring fast clearance and compliance with all regulations.",
+      description:
+        "Expert customs brokerage services ensuring fast clearance and compliance with all regulations.",
       features: [
         "Import/Export documentation",
-        "Duty and tax calculation", 
+        "Duty and tax calculation",
         "Regulatory compliance",
-        "Expedited processing"
-      ]
+        "Expedited processing",
+      ],
     },
     {
       icon: <ShieldCheckIcon className="w-10 h-10" />,
       title: "Compliance Management",
-      description: "Comprehensive regulatory compliance solutions to navigate complex international trade requirements.",
+      description:
+        "Comprehensive regulatory compliance solutions to navigate complex international trade requirements.",
       features: [
         "Trade regulation analysis",
         "License management",
         "Risk assessment",
-        "Audit support"
-      ]
+        "Audit support",
+      ],
     },
     {
       icon: <ChartBarIcon className="w-10 h-10" />,
       title: "Trade Finance",
-      description: "Financial solutions and consulting for international trade operations and risk mitigation.",
+      description:
+        "Financial solutions and consulting for international trade operations and risk mitigation.",
       features: [
         "Letters of credit",
         "Trade insurance",
         "Currency hedging",
-        "Payment solutions"
-      ]
+        "Payment solutions",
+      ],
     },
     {
       icon: <UserGroupIcon className="w-10 h-10" />,
       title: "Consulting Services",
-      description: "Expert consulting on trade strategies, market entry, and supply chain optimization.",
+      description:
+        "Expert consulting on trade strategies, market entry, and supply chain optimization.",
       features: [
         "Market analysis",
         "Supply chain design",
         "Cost optimization",
-        "Strategic planning"
-      ]
-    }
+        "Strategic planning",
+      ],
+    },
   ];
 
   const expertise = [
     {
       area: "Customs & Trade",
-      description: "Deep expertise in customs procedures, tariff classifications, and trade regulations across multiple jurisdictions.",
+      description:
+        "Deep expertise in customs procedures, tariff classifications, and trade regulations across multiple jurisdictions.",
       capabilities: [
         "HS code classification",
-        "Origin certification", 
+        "Origin certification",
         "Preferential trade agreements",
-        "Customs valuation"
-      ]
+        "Customs valuation",
+      ],
     },
     {
       area: "Documentation",
-      description: "Complete documentation services ensuring accuracy and compliance with international standards.",
+      description:
+        "Complete documentation services ensuring accuracy and compliance with international standards.",
       capabilities: [
         "Commercial invoices",
         "Bills of lading",
         "Certificates of origin",
-        "Packing lists"
-      ]
+        "Packing lists",
+      ],
     },
     {
       area: "Regulatory Affairs",
-      description: "Navigate complex regulatory landscapes with expert knowledge of international trade laws.",
+      description:
+        "Navigate complex regulatory landscapes with expert knowledge of international trade laws.",
       capabilities: [
         "Import/export licenses",
         "Product registrations",
         "Safety certifications",
-        "Environmental permits"
-      ]
-    }
+        "Environmental permits",
+      ],
+    },
   ];
 
   const benefits = [
@@ -124,7 +140,7 @@ const Agency: React.FC = () => {
     "Expert knowledge of local regulations",
     "24/7 support for urgent shipments",
     "Cost optimization through duty planning",
-    "Comprehensive documentation management"
+    "Comprehensive documentation management",
   ];
 
   return (
@@ -140,8 +156,9 @@ const Agency: React.FC = () => {
               Agency <span className="text-accent">Services</span>
             </h1>
             <p className="text-xl text-textMuted max-w-4xl mx-auto mb-8">
-              Comprehensive trade agency services including customs clearance, compliance management, 
-              and expert consultation for seamless international business operations.
+              Comprehensive trade agency services including customs clearance,
+              compliance management, and expert consultation for seamless
+              international business operations.
             </p>
           </div>
 
@@ -170,11 +187,15 @@ const Agency: React.FC = () => {
               Core <span className="text-accent">Services</span>
             </h2>
             <p className="text-xl text-textMuted max-w-3xl mx-auto">
-              Complete agency solutions designed to streamline your international trade operations and ensure compliance.
+              Complete agency solutions designed to streamline your
+              international trade operations and ensure compliance.
             </p>
           </div>
 
-          <div ref={servicesRef} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            ref={servicesRef}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
             {services.map((service, index) => (
               <div key={index} className="group">
                 <div className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-xl p-8 hover:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accentGlow/20 h-full">
@@ -184,10 +205,15 @@ const Agency: React.FC = () => {
                   <h3 className="text-2xl font-semibold text-text mb-4 group-hover:text-accent transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-textMuted mb-6 leading-relaxed">{service.description}</p>
+                  <p className="text-textMuted mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
                   <ul className="space-y-2">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-textMuted">
+                      <li
+                        key={featureIndex}
+                        className="flex items-center text-sm text-textMuted"
+                      >
                         <div className="w-2 h-2 bg-accent rounded-full mr-3"></div>
                         {feature}
                       </li>
@@ -208,20 +234,33 @@ const Agency: React.FC = () => {
               Areas of <span className="text-accent">Expertise</span>
             </h2>
             <p className="text-xl text-textMuted max-w-3xl mx-auto">
-              Specialized knowledge and experience across key areas of international trade and logistics.
+              Specialized knowledge and experience across key areas of
+              international trade and logistics.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {expertise.map((area, index) => (
-              <div key={index} className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-xl p-8 hover:border-accent transition-all duration-300">
-                <h3 className="text-2xl font-semibold text-text mb-4">{area.area}</h3>
-                <p className="text-textMuted mb-6 leading-relaxed">{area.description}</p>
+              <div
+                key={index}
+                className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-xl p-8 hover:border-accent transition-all duration-300"
+              >
+                <h3 className="text-2xl font-semibold text-text mb-4">
+                  {area.area}
+                </h3>
+                <p className="text-textMuted mb-6 leading-relaxed">
+                  {area.description}
+                </p>
                 <div>
-                  <h4 className="text-lg font-semibold text-text mb-3">Key Capabilities:</h4>
+                  <h4 className="text-lg font-semibold text-text mb-3">
+                    Key Capabilities:
+                  </h4>
                   <ul className="space-y-2">
                     {area.capabilities.map((capability, capIndex) => (
-                      <li key={capIndex} className="flex items-center text-sm text-textMuted">
+                      <li
+                        key={capIndex}
+                        className="flex items-center text-sm text-textMuted"
+                      >
                         <div className="w-2 h-2 bg-accent rounded-full mr-3"></div>
                         {capability}
                       </li>
@@ -242,24 +281,55 @@ const Agency: React.FC = () => {
               Our <span className="text-accent">Process</span>
             </h2>
             <p className="text-xl text-textMuted max-w-3xl mx-auto">
-              A systematic approach ensuring efficient processing and compliance at every step.
+              A systematic approach ensuring efficient processing and compliance
+              at every step.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
             {[
-              { step: "01", title: "Analysis", description: "Trade requirement analysis" },
-              { step: "02", title: "Planning", description: "Compliance strategy development" },
-              { step: "03", title: "Documentation", description: "Complete documentation prep" },
-              { step: "04", title: "Submission", description: "Regulatory submission process" },
-              { step: "05", title: "Clearance", description: "Customs clearance execution" },
-              { step: "06", title: "Follow-up", description: "Post-clearance support" }
+              {
+                step: "01",
+                title: "Analysis",
+                description: "Trade requirement analysis",
+              },
+              {
+                step: "02",
+                title: "Planning",
+                description: "Compliance strategy development",
+              },
+              {
+                step: "03",
+                title: "Documentation",
+                description: "Complete documentation prep",
+              },
+              {
+                step: "04",
+                title: "Submission",
+                description: "Regulatory submission process",
+              },
+              {
+                step: "05",
+                title: "Clearance",
+                description: "Customs clearance execution",
+              },
+              {
+                step: "06",
+                title: "Follow-up",
+                description: "Post-clearance support",
+              },
             ].map((process, index) => (
               <div key={index} className="text-center">
                 <div className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-xl p-6 hover:border-accent transition-all duration-300 mb-4">
-                  <div className="text-xl font-heading font-bold text-accent mb-3">{process.step}</div>
-                  <h3 className="text-lg font-semibold text-text mb-2">{process.title}</h3>
-                  <p className="text-textMuted text-sm">{process.description}</p>
+                  <div className="text-xl font-heading font-bold text-accent mb-3">
+                    {process.step}
+                  </div>
+                  <h3 className="text-lg font-semibold text-text mb-2">
+                    {process.title}
+                  </h3>
+                  <p className="text-textMuted text-sm">
+                    {process.description}
+                  </p>
                 </div>
                 {index < 5 && (
                   <div className="hidden lg:block w-full h-0.5 bg-accent opacity-30"></div>
@@ -275,10 +345,12 @@ const Agency: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-text mb-6">
-              Why Choose Our <span className="text-accent">Agency Services</span>
+              Why Choose Our{" "}
+              <span className="text-accent">Agency Services</span>
             </h2>
             <p className="text-xl text-textMuted max-w-3xl mx-auto">
-              Experience the advantages of working with seasoned trade professionals.
+              Experience the advantages of working with seasoned trade
+              professionals.
             </p>
           </div>
 
@@ -308,9 +380,18 @@ const Agency: React.FC = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {[
-              "Automotive", "Pharmaceuticals", "Chemicals", "Electronics",
-              "Food & Beverage", "Textiles", "Machinery", "Energy",
-              "Consumer Goods", "Agriculture", "Aviation", "Marine"
+              "Automotive",
+              "Pharmaceuticals",
+              "Chemicals",
+              "Electronics",
+              "Food & Beverage",
+              "Textiles",
+              "Machinery",
+              "Energy",
+              "Consumer Goods",
+              "Agriculture",
+              "Aviation",
+              "Marine",
             ].map((industry, index) => (
               <div key={index} className="text-center">
                 <div className="bg-surfaceGlass backdrop-blur-lg border border-border rounded-lg p-4 hover:border-accent transition-all duration-300">
@@ -326,10 +407,12 @@ const Agency: React.FC = () => {
       <section className="py-20 bg-surfaceGlass backdrop-blur-lg">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-text mb-6">
-            Ready to Streamline Your <span className="text-accent">Trade Operations?</span>
+            Ready to Streamline Your{" "}
+            <span className="text-accent">Trade Operations?</span>
           </h2>
           <p className="text-xl text-textMuted mb-8 max-w-2xl mx-auto">
-            Contact our trade experts today for comprehensive agency services tailored to your business needs.
+            Contact our trade experts today for comprehensive agency services
+            tailored to your business needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
